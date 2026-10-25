@@ -1,0 +1,16 @@
+## Why is a tree appropriate for the doctor structure?
+## When might a software engineer use preorder, inorder, or postorder traversals?
+## How do heaps help simulate real-time systems like emergency intake?
+
+# - My Response (Ronan Christie) - The binary tree method was what made the most sense for this doctor queue system because
+theres a clear chain of priority within a hospital especially when it has to do with something like urgency. The priority also works
+for the employee management because doctors have a heirarchy where someone is the head of each department which has doctors who answers to him.
+The doctors names are stored as nodes in the tree where the root doctor is the head of a department and the tree branches out to doctors to send
+patients too and recursive searching is how its assesed who the doctor best fit for the job is unless there is no doctors at all. It also allows for the
+system to be scaled upwards within the hospital without disrupting the flow of things. The traversal methods are used for the priority of the binary tree
+for preorder the method visits the parent first in the tree and then searches from there which is useful in heirachle data like management. The Inorder method
+goes to the left childs of the tree and then goes to left if a condition isnt met which is helpful in binary trees because it tells us when something is missing
+from a binary tree easier. The method Postorder is when you visit children nodes before parent which is helpful for version control in a professional
+setting to see who broke production lines with a push and using this could show who they are what team they are on and who they answer to as a boss.
+Heaps can be helpful for real life simulation because emergency rooms have varying priority updating constantly because someones injury might give them priority over a sore chest
+heaps help handle the prexsisting data and use it without changing it in a way that does use urgency for the order patients are seen in. The closer a person urgency is to 0 the quicker they are seen.
