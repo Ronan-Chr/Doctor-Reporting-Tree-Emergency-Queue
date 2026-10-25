@@ -18,7 +18,30 @@ class MinHeap:
             else:
                 break
 
+    #Heap down method to maintain the heap property after removing the root
+    def heapify_down(self, index):
+        while True:
+            left_child = 2 * index + 1
+            right_child = 2 * index + 2
+            smallest = index
 
+            if (
+                left_child < len(self.data)
+                and self.data[left_child].urgency < self.data[smallest].urgency
+            ):
+                smallest = left_child
+
+            if (
+                right_child < len(self.data)
+                and self.data[right_child].urgency < self.data[smallest].urgency
+            ):
+                smallest = right_child
+
+            if smallest == index:
+                break
+
+            self.data[index], self.data[smallest] = (self.data[smallest], self.data[index])
+            index = smallest
 # Tests
 p1 = Patient("Ronan", 6)
 print(p1.name)  # Output: Ronan
@@ -26,3 +49,27 @@ print(p1.urgency)  # Output: 6
 
 heap = MinHeap()
 print(heap.data) # Output: []
+
+
+#HEAP TESTS (Help from AI to create these tests)
+heap = MinHeap()
+
+# Test heapify_up
+heap.data = [
+    Patient("Jordan", 3),
+    Patient("Avery", 5),
+    Patient("Taylor", 1)
+]
+
+heap.heapify_up(2)
+print(heap.data[0].name)  # Taylor
+
+# Test heapify_down
+heap.data = [
+    Patient("Avery", 5),
+    Patient("Jordan", 3),
+    Patient("Taylor", 1)
+]
+
+heap.heapify_down(0)
+print(heap.data[0].name)  # Taylor
