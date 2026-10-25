@@ -42,6 +42,38 @@ class MinHeap:
 
             self.data[index], self.data[smallest] = (self.data[smallest], self.data[index])
             index = smallest
+
+
+    #defined patient insert method to add a new patient to the heap
+    def insert(self, patient):
+        self.data.append(patient)
+        self.heapify_up(len(self.data) - 1)
+
+    #print method for actually seeing what the heap looks like when we call it
+    def print_heap(self):
+        for patient in self.data:
+            print(f"Patient: {patient.name} ({patient.urgency})")
+
+    #peek is for checking the patient list without removing the patient from the heap. This is useful for checking the next patient to be treated without modifying the queue.
+    def peek(self):
+        if len(self.data) == 0:
+            return None
+        return self.data[0]
+
+    #Defined the remove min method 
+    def remove_min(self):
+        if len(self.data) == 0:
+            return None
+
+        if len (self.data) == 1:
+            return self.data.pop()
+
+        most_urgent=self.data[0]
+        self.data[0] = self.data.pop()
+        self.heapify_down(0)
+
+        return most_urgent
+
 # Tests
 p1 = Patient("Ronan", 6)
 print(p1.name)  # Output: Ronan
@@ -73,3 +105,10 @@ heap.data = [
 
 heap.heapify_down(0)
 print(heap.data[0].name)  # Taylor
+
+heap.insert(Patient("Kevin", 9))
+heap.insert(Patient("Ann", 1))
+heap.print_heap()
+
+next_up = heap.peek()
+print("Next patient to be treated:", next_up.name, next_up.urgency)

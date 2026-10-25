@@ -78,5 +78,5 @@ tree.insert("Dr. Phan", "Dr. Morgan", "right")
 print(tree.root.left.name)        # Dr. Phan
 print(tree.root.left.right.name)  # Dr. Morgan
 print(tree.preorder(tree.root))   # ['Dr. Croft', 'Dr. Phan', 'Dr. Morgan']
-print(tree.inorder(tree.root))    # ['Dr. Croft', 'Dr. Phan', 'Dr. Morgan']
-print(tree.postorder(tree.root))  # ['Dr. Phan', 'Dr. Morgan', 'Dr. Croft']
+print(tree.inorder(tree.root))    # ['Dr. Phan', 'Dr. Morgan', 'Dr. Croft']
+print(tree.postorder(tree.root))  # ['Dr.Morgan', 'Dr. Phan ', 'Dr. Croft']
