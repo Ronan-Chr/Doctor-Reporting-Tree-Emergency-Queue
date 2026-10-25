@@ -42,6 +42,24 @@ class DoctorTree:
 
         return False  # parent_name not found in the tree
 
+    #Define preorder traversal method
+    def preorder(self, node):
+        if node is None:
+            return []
+        return [node.name] + self.preorder(node.left) + self.preorder(node.right)
+
+    #Define inorder traversal method
+    def inorder(self, node):
+        if node is None:
+            return []
+        return self.inorder(node.left) + [node.name] + self.inorder(node.right)
+
+    #Define postorder traversal method
+    def postorder(self, node):
+        if node is None:
+            return []
+        return self.postorder(node.left) + self.postorder(node.right) + [node.name]
+
 
 # Test your DoctorTree and DoctorNode classes here
 tree = DoctorTree()
@@ -59,4 +77,6 @@ tree.insert("Dr. Phan", "Dr. Morgan", "right")
 
 print(tree.root.left.name)        # Dr. Phan
 print(tree.root.left.right.name)  # Dr. Morgan
-
+print(tree.preorder(tree.root))   # ['Dr. Croft', 'Dr. Phan', 'Dr. Morgan']
+print(tree.inorder(tree.root))    # ['Dr. Croft', 'Dr. Phan', 'Dr. Morgan']
+print(tree.postorder(tree.root))  # ['Dr. Phan', 'Dr. Morgan', 'Dr. Croft']
